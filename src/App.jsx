@@ -11,14 +11,14 @@ const WhatsAppIcon = ({ size = 24, color = "currentColor" }) => (
 const WHATSAPP_NUMBER = "918925409139"; // Added country code 91
 
 const products = [
-  { id: 1, title: 'Exide Inva Tubular Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400' },
-  { id: 2, title: 'Amaron Tall Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=400' },
-  { id: 3, title: 'Luminous RedCharge 15000 Battery', category: 'Battery', brand: 'Luminous', img: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400' },
-  { id: 4, title: 'Livguard Inverter Battery', category: 'Battery', brand: 'Livguard', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=400' },
-  { id: 5, title: 'Microtek Tubular Battery', category: 'Battery', brand: 'Microtek', img: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400' },
-  { id: 6, title: 'V-Guard Tubular Battery', category: 'Battery', brand: 'V-Guard', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=400' },
-  { id: 7, title: 'Exide IT500 Super Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400' },
-  { id: 8, title: 'Amaron Current Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=400' },
+  { id: 1, title: 'Exide Inva Tubular Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1619641805634-988f83045f80?auto=format&fit=crop&q=80&w=400' },
+  { id: 2, title: 'Amaron Tall Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1609921205586-7e8a57516512?auto=format&fit=crop&q=80&w=400' },
+  { id: 3, title: 'Luminous RedCharge 15000 Battery', category: 'Battery', brand: 'Luminous', img: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=400' },
+  { id: 4, title: 'Livguard Inverter Battery', category: 'Battery', brand: 'Livguard', img: 'https://images.unsplash.com/photo-1615799998603-7c6270a45196?auto=format&fit=crop&q=80&w=400' },
+  { id: 5, title: 'Microtek Tubular Battery', category: 'Battery', brand: 'Microtek', img: 'https://images.unsplash.com/photo-1619641805634-988f83045f80?auto=format&fit=crop&q=80&w=400' },
+  { id: 6, title: 'V-Guard Tubular Battery', category: 'Battery', brand: 'V-Guard', img: 'https://images.unsplash.com/photo-1609921205586-7e8a57516512?auto=format&fit=crop&q=80&w=400' },
+  { id: 7, title: 'Exide IT500 Super Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=400' },
+  { id: 8, title: 'Amaron Current Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1615799998603-7c6270a45196?auto=format&fit=crop&q=80&w=400' },
 ];
 
 const brands = ['Exide', 'Amaron', 'Luminous', 'Microtek', 'V-Guard', 'Livguard'];
@@ -152,14 +152,13 @@ function App() {
         <div className="container top-bar-content">
           <div className="top-bar-info">
             <span><Phone size={14} /> +91 89254 09139</span>
-            <span><MapPin size={14} /> Mill Rd, Walajabad, TN 631605</span>
+            <span className="top-bar-divider"></span>
+            <span className="top-bar-address"><MapPin size={14} /> Walajabad, TN 631605</span>
           </div>
-          <div className="top-bar-hours" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            {storeStatus.isOpen ? (
-              <span style={{ backgroundColor: 'var(--success)', color: 'white', padding: '2px 8px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 'bold' }}>OPEN NOW</span>
-            ) : (
-              <span style={{ backgroundColor: 'var(--danger)', color: 'white', padding: '2px 8px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 'bold' }}>CLOSED</span>
-            )}
+          <div className="top-bar-hours">
+            <span className={`status-badge ${storeStatus.isOpen ? 'open' : 'closed'}`}>
+              {storeStatus.isOpen ? 'Open Now' : 'Closed'}
+            </span>
             <span>Today: {storeStatus.todaysHours}</span>
           </div>
         </div>
