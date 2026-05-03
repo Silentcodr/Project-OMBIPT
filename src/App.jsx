@@ -56,13 +56,146 @@ const products = [
   },
   { id: 3, title: 'Luminous Eco Volt', category: 'INVERTER', brand: 'Luminous', img: '/products/luminous_ecovolt.png', variants: [{ id: '3a', model: 'Eco Volt Neo 2300+', specs: '2KVA / 24V' }] },
   { id: 4, title: 'Luminous I-Cruze', category: 'INVERTER', brand: 'Luminous', img: '/products/luminous_icruze.png', variants: [{ id: '4a', model: 'I-CRUZE 7000+', specs: '6KVA / 96V' }, { id: '4b', model: 'I-CRUZE 9000+', specs: '7.5KVA / 120V' }] },
-  { id: 5, title: 'Exide Mileage', category: 'CAR BATTERY', brand: 'Exide', img: '/products/exide_mileage.png' },
+  { 
+    id: 5, title: 'Exide Car Battery', category: 'CAR BATTERY', brand: 'Exide', img: '/products/exide_mileage.png',
+    description: 'Complete Range of Exide Car Batteries',
+    subCategories: [
+      { name: 'Exide EPIQ', variants: [
+        { id: '5a1', model: 'EPIQ35L/R', specs: 'EPIQ Series' },
+        { id: '5a2', model: 'EPIQ40LBH', specs: 'EPIQ Series' },
+        { id: '5a3', model: 'EPIQDIN74L', specs: 'EPIQ DIN Series' }
+      ]},
+      { name: 'Exide Matrix', variants: [
+        { id: '5b1', model: 'MT40B20L/R', specs: 'Matrix Series' },
+        { id: '5b2', model: 'MTRED45L', specs: 'Matrix Red Series' },
+        { id: '5b3', model: 'MTREDDIN100', specs: 'Matrix Red DIN Series' }
+      ]},
+      { name: 'Exide Mileage ISS', variants: [
+        { id: '5c1', model: 'MLM42(ISS)', specs: 'Mileage ISS' },
+        { id: '5c2', model: 'MLN55(ISS)', specs: 'Mileage ISS' },
+        { id: '5c3', model: 'MLDIN70(ISS)', specs: 'Mileage ISS DIN' }
+      ]},
+      { name: 'Exide Mileage', variants: [
+        { id: '5d1', model: 'ML38B20L/R', specs: 'Mileage' },
+        { id: '5d2', model: 'ML40LBH/RBH', specs: 'Mileage' },
+        { id: '5d3', model: 'MLDIN44R/LH', specs: 'Mileage DIN' },
+        { id: '5d4', model: 'ML45D21LBH', specs: 'Mileage' },
+        { id: '5d5', model: 'ML55B24L(T1)', specs: 'Mileage' },
+        { id: '5d6', model: 'MLDIN50', specs: 'Mileage DIN' },
+        { id: '5d7', model: 'ML55D23L', specs: 'Mileage' },
+        { id: '5d8', model: 'MLDIN55/R', specs: 'Mileage DIN' },
+        { id: '5d9', model: 'MLDIN60', specs: 'Mileage DIN' },
+        { id: '5d10', model: 'MLDIN66 / 66A', specs: 'Mileage DIN' },
+        { id: '5d11', model: 'ML75D23LBH', specs: 'Mileage' },
+        { id: '5d12', model: 'ML85D26R / L', specs: 'Mileage' },
+        { id: '5d13', model: 'MLDIN80', specs: 'Mileage DIN' }
+      ]},
+      { name: 'Exide AGM', variants: [
+        { id: '5e1', model: 'AGMIDIN50', specs: 'AGM DIN' },
+        { id: '5e2', model: 'AGMIDIN60', specs: 'AGM DIN' },
+        { id: '5e3', model: 'AGMIDIN70', specs: 'AGM DIN' },
+        { id: '5e4', model: 'AGMIDIN80', specs: 'AGM DIN' },
+        { id: '5e5', model: 'AGMIDIN95', specs: 'AGM DIN' }
+      ]},
+      { name: 'Exide Eezy ISS', variants: [
+        { id: '5f1', model: 'EYDIN47RMFEFB', specs: 'Eezy ISS DIN' },
+        { id: '5f2', model: 'EYDIN52RMFEFB', specs: 'Eezy ISS DIN' },
+        { id: '5f3', model: 'EYDIN78LMFEFB', specs: 'Eezy ISS DIN' }
+      ]},
+      { name: 'Exide Eezy', variants: [
+        { id: '5g1', model: 'EY34B19L/R', specs: 'Eezy' },
+        { id: '5g2', model: 'EY38B20L/R', specs: 'Eezy' },
+        { id: '5g3', model: 'EY700L/R', specs: 'Eezy' },
+        { id: '5g4', model: 'EY700F/EY700LF', specs: 'Eezy' },
+        { id: '5g5', model: 'EY80D23R', specs: 'Eezy' },
+        { id: '5g6', model: 'EY105D31L/R', specs: 'Eezy' }
+      ]},
+      { name: 'Exide Ride', variants: [
+        { id: '5h1', model: 'RIDE35L', specs: 'Ride' },
+        { id: '5h2', model: 'RIDE45L', specs: 'Ride' },
+        { id: '5h3', model: 'RIDE700L/R', specs: 'Ride' },
+        { id: '5h4', model: 'RIDE700LF/RF', specs: 'Ride' }
+      ]},
+      { name: 'Exide EKO', variants: [
+        { id: '5i1', model: 'EKO32', specs: 'EKO' },
+        { id: '5i2', model: 'EKO40L', specs: 'EKO' },
+        { id: '5i3', model: 'EKO50L', specs: 'EKO' },
+        { id: '5i4', model: 'EKO55L', specs: 'EKO' },
+        { id: '5i5', model: 'EKO60L/R', specs: 'EKO' }
+      ]}
+    ]
+  },
   { id: 6, title: 'Amaron Pro Bike Rider', category: 'TWO WHEELER BATTERY', brand: 'Amaron', img: '/products/amaron_pro_rider.png' },
-  { id: 7, title: 'Exide Xpress Heavy Duty', category: 'HEAVY VEHICLE BATTERY', brand: 'Exide', img: '/products/exide_xpress.png' },
-  { id: 8, title: 'Torque Battery Pack', category: 'INVERTER-BATTERY', brand: 'Torque', img: '/products/torque_battery.png' },
+  { 
+    id: 7, title: 'Exide Heavy Vehicle Battery', category: 'HEAVY VEHICLE BATTERY', brand: 'Exide', img: '/products/exide_xpress.png',
+    description: 'Truck, CV & Tractor Batteries',
+    subCategories: [
+      { name: 'Exide Xpress', variants: [
+        { id: '7a1', model: 'XP800', specs: 'Xpress' },
+        { id: '7a2', model: 'XP800F', specs: 'Xpress' },
+        { id: '7a3', model: 'XP880', specs: 'Xpress' },
+        { id: '7a4', model: 'XP1000', specs: 'Xpress' },
+        { id: '7a5', model: 'XP1000H29R', specs: 'Xpress' },
+        { id: '7a6', model: 'XP1200 / L(RH)', specs: 'Xpress' },
+        { id: '7a7', model: 'XP1300', specs: 'Xpress' },
+        { id: '7a8', model: 'XP1500', specs: 'Xpress' },
+        { id: '7a9', model: 'XP1800', specs: 'Xpress' },
+        { id: '7a10', model: 'XP2000', specs: 'Xpress' }
+      ]},
+      { name: 'Exide Jai Kisan', variants: [
+        { id: '7b1', model: 'KI75TF', specs: 'Jai Kisan' },
+        { id: '7b2', model: 'KI80T', specs: 'Jai Kisan' },
+        { id: '7b3', model: 'KI88TLH', specs: 'Jai Kisan' },
+        { id: '7b4', model: 'KI90H29L', specs: 'Jai Kisan' },
+        { id: '7b5', model: 'KI99T', specs: 'Jai Kisan' }
+      ]},
+      { name: 'Exide Drive', variants: [
+        { id: '7c1', model: 'DRIVE35L', specs: 'Drive' },
+        { id: '7c2', model: 'DRIVE40LBH', specs: 'Drive' },
+        { id: '7c3', model: 'DRIVE45L/R', specs: 'Drive' },
+        { id: '7c4', model: 'DRIVE700R', specs: 'Drive' },
+        { id: '7c5', model: 'DRIVE700RF', specs: 'Drive' },
+        { id: '7c6', model: 'DRIVE80L/R', specs: 'Drive' },
+        { id: '7c7', model: 'DRIVE80LF/RF', specs: 'Drive' },
+        { id: '7c8', model: 'DRIVE88L', specs: 'Drive' },
+        { id: '7c9', model: 'DRIVE100L', specs: 'Drive' },
+        { id: '7c10', model: 'DRIVE100H29R', specs: 'Drive' },
+        { id: '7c11', model: 'DRIVE130R', specs: 'Drive' },
+        { id: '7c12', model: 'DRIVE150R', specs: 'Drive' }
+      ]}
+    ]
+  },
+  { 
+    id: 8, title: 'Torque Lithium Batteries', category: 'INVERTER-BATTERY', brand: 'Torque', img: '/products/torque_battery.png',
+    description: 'High Capacity Lithium Battery',
+    variants: [
+      { id: '8a', model: 'TE-1280-12BT', specs: '12.8V 100Ah' },
+      { id: '8b', model: 'TE-2560-12BT', specs: '12.8V 200Ah' },
+      { id: '8c', model: 'TE-2560-25BT', specs: '25.6V 100Ah' },
+      { id: '8d', model: 'TE-5120-25BT', specs: '25.6V 200Ah' },
+      { id: '8e', model: 'TE-5120-51BT', specs: '51.2V 100Ah' },
+      { id: '8f', model: 'TE-10240-51BT', specs: '51.2V 200Ah' }
+    ]
+  },
   { id: 9, title: 'Exide IMST1000', category: 'INVERTER-BATTERY', brand: 'Exide', img: '/products/exide_imst1000.jpeg', description: 'Exide Home InvaMaster' },
   { id: 10, title: 'Luminous RC18000 + Inverter 1050 Combo', category: 'HOME UPS COMBO', brand: 'Luminous', img: '/products/luminous_rc18000_combo_v2.png', description: 'RC 18000 150Ah Battery + Eco Volt Neo 1050 Inverter' },
-  { id: 11, title: 'Exide Xplore XLTZ5A', category: 'TWO WHEELER BATTERY', brand: 'Exide', img: '/products/exide_xplore_xltz5a.jpeg', description: 'Motorcycle VRLA Battery (48 Months Warranty)' },
+  { 
+    id: 11, title: 'Exide Xplore', category: 'TWO WHEELER BATTERY', brand: 'Exide', img: '/products/exide_xplore_xltz5a.jpeg',
+    description: '2-Wheeler / Bike Battery',
+    variants: [
+      { id: '11a', model: '12XL2.5L-C', specs: 'Xplore' },
+      { id: '11b', model: 'XLTZ4A', specs: 'Xplore' },
+      { id: '11c', model: 'XLTZ5A', specs: 'Xplore' },
+      { id: '11d', model: 'XLTZ6', specs: 'Xplore' },
+      { id: '11e', model: '12XL5L-B', specs: 'Xplore' },
+      { id: '11f', model: 'XLTZ7', specs: 'Xplore' },
+      { id: '11g', model: '12XL7B-B', specs: 'Xplore' },
+      { id: '11h', model: 'XLTZ9', specs: 'Xplore' },
+      { id: '11i', model: '12XL9-B', specs: 'Xplore' },
+      { id: '11j', model: 'XLTX14', specs: 'Xplore' },
+      { id: '11k', model: '12XL14L-A2', specs: 'Xplore' }
+    ]
+  },
   { id: 12, title: 'Exide IMTT1500 + Inverter Star Combo', category: 'HOME UPS COMBO', brand: 'Exide', img: '/products/exide_imtt1500_combo.jpeg', description: 'IMTT1500 150Ah Battery + Star 12V/1125VA Inverter' }
 ];
 
@@ -85,10 +218,17 @@ function App() {
   // Variant Modal State
   const [selectedBaseProduct, setSelectedBaseProduct] = useState(null);
   const [isVariantModalOpen, setIsVariantModalOpen] = useState(false);
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
 
   const openVariants = (product) => {
     setSelectedBaseProduct(product);
+    setSelectedSubCategory(null);
     setIsVariantModalOpen(true);
+  };
+
+  const closeVariantModal = () => {
+    setIsVariantModalOpen(false);
+    setSelectedSubCategory(null);
   };
   
   // New state for direct WhatsApp chat modal
@@ -315,7 +455,7 @@ function App() {
                     {product.brand} &bull; {product.category.replace('-', ' ')}
                   </span>
                   <h3 className="product-title">{product.title}</h3>
-                  {product.variants ? (
+                  {(product.variants || product.subCategories) ? (
                     <button className="btn btn-primary" onClick={() => openVariants(product)}>
                       Select Model
                     </button>
@@ -499,14 +639,52 @@ function App() {
       </div>
 
       {/* Variant Selection Modal */}
-      <div className={`modal-overlay ${isVariantModalOpen ? 'open' : ''}`} onClick={() => setIsVariantModalOpen(false)}>
+      <div className={`modal-overlay ${isVariantModalOpen ? 'open' : ''}`} onClick={closeVariantModal}>
         <div className="modal variants-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '600px' }}>
           <div className="modal-header">
-            <h2>{selectedBaseProduct?.title} Models</h2>
-            <button className="close-btn" onClick={() => setIsVariantModalOpen(false)}><X /></button>
+            <h2>
+              {selectedSubCategory ? (
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <button onClick={() => setSelectedSubCategory(null)} style={{ background: 'none', border: 'none', color: 'var(--white)', cursor: 'pointer', padding: '0.25rem', display: 'flex', alignItems: 'center' }}>
+                    <ArrowRight size={18} style={{ transform: 'rotate(180deg)' }} />
+                  </button>
+                  {selectedSubCategory.name}
+                </span>
+              ) : (
+                `${selectedBaseProduct?.title}`
+              )}
+            </h2>
+            <button className="close-btn" onClick={closeVariantModal}><X /></button>
           </div>
           <div className="modal-body" style={{ maxHeight: '60vh', overflowY: 'auto', padding: '0' }}>
-            {selectedBaseProduct?.variants ? (
+            {/* Level 1: Sub-Category Selection */}
+            {selectedBaseProduct?.subCategories && !selectedSubCategory ? (
+              <div style={{ padding: '0.5rem' }}>
+                {selectedBaseProduct.subCategories.map((subCat, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedSubCategory(subCat)}
+                    style={{
+                      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      width: '100%', padding: '1rem 1.25rem', background: 'var(--white)',
+                      border: '1px solid #e2e8f0', borderRadius: '10px', marginBottom: '0.5rem',
+                      cursor: 'pointer', transition: 'all 0.2s ease', fontSize: '1rem',
+                      fontWeight: '600', color: 'var(--secondary)'
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--primary)'; e.currentTarget.style.background = '#fffbeb'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = '#e2e8f0'; e.currentTarget.style.background = 'var(--white)'; }}
+                  >
+                    <span>{subCat.name}</span>
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-light)', fontSize: '0.875rem' }}>
+                      {subCat.variants.length} models <ArrowRight size={16} />
+                    </span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
+
+            {/* Level 2: Model Numbers (from subCategory or direct variants) */}
+            {(selectedSubCategory || (selectedBaseProduct?.variants && !selectedBaseProduct?.subCategories)) ? (
               <table className="variants-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead style={{ position: 'sticky', top: 0, background: '#f8fafc', zIndex: 1 }}>
                   <tr>
@@ -516,7 +694,7 @@ function App() {
                   </tr>
                 </thead>
                 <tbody>
-                  {selectedBaseProduct.variants.map((variant) => {
+                  {(selectedSubCategory ? selectedSubCategory.variants : selectedBaseProduct.variants).map((variant) => {
                     const variantId = `${selectedBaseProduct.id}-${variant.id}`;
                     const isAdded = inquiryList.find(i => i.id === variantId);
                     return (
@@ -524,13 +702,30 @@ function App() {
                         <td style={{ padding: '1rem', fontWeight: '500' }}>{variant.model}</td>
                         <td style={{ padding: '1rem', color: 'var(--text-light)' }}>{variant.specs}</td>
                         <td style={{ padding: '1rem', textAlign: 'right' }}>
-                          <button 
-                            className={`btn ${isAdded ? 'btn-secondary' : 'btn-primary'}`}
-                            style={{ padding: '0.4rem 1rem', fontSize: '0.875rem' }}
-                            onClick={() => addToInquiry({...selectedBaseProduct, id: variantId, variantModel: variant.model})}
-                          >
-                            {isAdded ? 'Added' : 'Add'}
-                          </button>
+                          {isAdded ? (
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                              <span className="btn btn-secondary" style={{ padding: '0.4rem 1rem', fontSize: '0.875rem', cursor: 'default' }}>
+                                <Check size={14} /> Added
+                              </span>
+                              <button 
+                                onClick={() => removeFromInquiry(variantId)}
+                                style={{ background: 'none', border: '1px solid #fecaca', borderRadius: '6px', color: 'var(--danger)', cursor: 'pointer', padding: '0.4rem 0.5rem', display: 'flex', alignItems: 'center', transition: 'all 0.2s ease' }}
+                                onMouseEnter={e => { e.currentTarget.style.background = '#fef2f2'; }}
+                                onMouseLeave={e => { e.currentTarget.style.background = 'none'; }}
+                                title="Remove from inquiry"
+                              >
+                                <X size={14} />
+                              </button>
+                            </span>
+                          ) : (
+                            <button 
+                              className="btn btn-primary"
+                              style={{ padding: '0.4rem 1rem', fontSize: '0.875rem' }}
+                              onClick={() => addToInquiry({...selectedBaseProduct, id: variantId, variantModel: variant.model, title: selectedSubCategory ? selectedSubCategory.name : selectedBaseProduct.title})}
+                            >
+                              Add
+                            </button>
+                          )}
                         </td>
                       </tr>
                     );
