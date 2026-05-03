@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, Phone, MapPin, Mail, MessageCircle, Star, X, Check, ArrowRight, Battery, Zap, Wrench } from 'lucide-react';
+import { ShoppingCart, Phone, MapPin, Mail, MessageCircle, Star, X, Check, ArrowRight, Battery, Zap, Wrench, Truck, RefreshCw, Tag } from 'lucide-react';
 import './App.css';
 
 const WhatsAppIcon = ({ size = 24, color = "currentColor" }) => (
@@ -10,21 +10,63 @@ const WhatsAppIcon = ({ size = 24, color = "currentColor" }) => (
 
 const WHATSAPP_NUMBER = "918925409139"; // Added country code 91
 
-const products = [
-  { id: 1, title: 'Exide Inva Tubular Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1619641805634-988f83045f80?auto=format&fit=crop&q=80&w=400' },
-  { id: 2, title: 'Amaron Tall Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1609921205586-7e8a57516512?auto=format&fit=crop&q=80&w=400' },
-  { id: 3, title: 'Luminous RedCharge 15000 Battery', category: 'Battery', brand: 'Luminous', img: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=400' },
-  { id: 4, title: 'Livguard Inverter Battery', category: 'Battery', brand: 'Livguard', img: 'https://images.unsplash.com/photo-1615799998603-7c6270a45196?auto=format&fit=crop&q=80&w=400' },
-  { id: 5, title: 'Microtek Tubular Battery', category: 'Battery', brand: 'Microtek', img: 'https://images.unsplash.com/photo-1619641805634-988f83045f80?auto=format&fit=crop&q=80&w=400' },
-  { id: 6, title: 'V-Guard Tubular Battery', category: 'Battery', brand: 'V-Guard', img: 'https://images.unsplash.com/photo-1609921205586-7e8a57516512?auto=format&fit=crop&q=80&w=400' },
-  { id: 7, title: 'Exide IT500 Super Battery', category: 'Battery', brand: 'Exide', img: 'https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?auto=format&fit=crop&q=80&w=400' },
-  { id: 8, title: 'Amaron Current Tubular Battery', category: 'Battery', brand: 'Amaron', img: 'https://images.unsplash.com/photo-1615799998603-7c6270a45196?auto=format&fit=crop&q=80&w=400' },
+const categories = [
+  'INVERTER', 'INVERTER-BATTERY', 'HOME UPS COMBO', 
+  'TWO WHEELER BATTERY', 'CAR BATTERY', 
+  'HEAVY VEHICLE BATTERY', 'SMF BATTERY'
 ];
 
-const brands = ['Exide', 'Amaron', 'Luminous', 'Microtek', 'V-Guard', 'Livguard'];
+const products = [
+  { 
+    id: 1, 
+    title: 'Exide Star Inverter', 
+    category: 'INVERTER', 
+    brand: 'Exide', 
+    img: '/products/exide_star_inverter.png',
+    description: '42M Warranty, MC Al Pure Sine',
+    variants: [
+      { id: '1a', model: 'STAR12V700', specs: '12V 700' },
+      { id: '1b', model: 'STAR12V900', specs: '12V 900' },
+      { id: '1c', model: 'STAR12V1125', specs: '12V 1125' },
+      { id: '1d', model: 'STAR12V1375', specs: '12V 1375' },
+      { id: '1e', model: 'STAR12V1625', specs: '12V 1625' },
+      { id: '1f', model: 'STAR24V1625', specs: '24V 1625' },
+      { id: '1g', model: 'STAR24V2550', specs: '24V 2550' }
+    ]
+  },
+  { 
+    id: 2, 
+    title: 'Luminous Optimus UPS', 
+    category: 'INVERTER', 
+    brand: 'Luminous', 
+    img: '/products/luminous_optimus.png',
+    description: 'High performance pure sine wave UPS',
+    variants: [
+      { id: '2a', model: 'OPTIMUS 2300+', specs: '2KVA / 24V' },
+      { id: '2b', model: 'OPTIMUS 2800+', specs: '2.5KVA / 24V' },
+      { id: '2c', model: 'OPTIMUS 3500+', specs: '3KVA / 24V' },
+      { id: '2d', model: 'OPTIMUS 3800+', specs: '3.5KVA / 36V' },
+      { id: '2e', model: 'OPTIMUS 4300+', specs: '4KVA / 36V' },
+      { id: '2f', model: 'OPTIMUS 4500+', specs: '4KVA / 48V' },
+      { id: '2g', model: 'OPTIMUS 6000+', specs: '5KVA / 48V' },
+      { id: '2h', model: 'OPTIMUS 6500+', specs: '5.5KVA / 72V' },
+      { id: '2i', model: 'OPTIMUS 8000+', specs: '7.5KVA / 96V' },
+      { id: '2j', model: 'OPTIMUS 11000+', specs: '10KVA / 120V' }
+    ]
+  },
+  { id: 3, title: 'Luminous Eco Volt', category: 'INVERTER', brand: 'Luminous', img: '/products/luminous_ecovolt.png', variants: [{ id: '3a', model: 'Eco Volt Neo 2300+', specs: '2KVA / 24V' }] },
+  { id: 4, title: 'Luminous I-Cruze', category: 'INVERTER', brand: 'Luminous', img: '/products/luminous_icruze.png', variants: [{ id: '4a', model: 'I-CRUZE 7000+', specs: '6KVA / 96V' }, { id: '4b', model: 'I-CRUZE 9000+', specs: '7.5KVA / 120V' }] },
+  { id: 5, title: 'Exide Mileage', category: 'CAR BATTERY', brand: 'Exide', img: '/products/exide_mileage.png' },
+  { id: 6, title: 'Amaron Pro Bike Rider', category: 'TWO WHEELER BATTERY', brand: 'Amaron', img: '/products/amaron_pro_rider.png' },
+  { id: 7, title: 'Exide Xpress Heavy Duty', category: 'HEAVY VEHICLE BATTERY', brand: 'Exide', img: '/products/exide_xpress.png' },
+  { id: 8, title: 'Torque Battery Pack', category: 'INVERTER-BATTERY', brand: 'Torque', img: '/products/torque_battery.png' },
+];
+
+const brands = ['Exide', 'Torque', 'Microtek', 'Luminous', 'Amaron'];
 
 const testimonials = [
   { id: 1, name: 'Karthik Raja', text: 'Service romba nalla irundhuchu. Battery and Inverter price unmaiyale market la romba competitive ah kudukuranga. Om Muruga is the best shop in Walajabad.' },
+  { id: 6, name: 'Thirisha', text: 'Bought a new battery for my scooter here. The price was very reasonable and their customer service was excellent. They changed it very quickly! Happy with the service.' },
   { id: 2, name: 'Priya Patel', text: 'Bought a Luminous inverter and battery combo. Genuine products and very competitive pricing. Highly recommend OM MURUGA!' },
   { id: 3, name: 'Muruganandam', text: 'அருமையான சேவை மற்றும் தரமான பேட்டரிகள் கிடைக்கின்றன. எங்கள் வீட்டிற்கு தேவையான சிறந்த இன்வெர்ட்டரை தேர்வு செய்ய உதவியாக இருந்தனர்.' },
   { id: 4, name: 'Suresh Kumar', text: 'Quick installation and superb after-sales support. Their team is very knowledgeable about power backup systems.' },
@@ -35,6 +77,15 @@ function App() {
   const [inquiryList, setInquiryList] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+
+  // Variant Modal State
+  const [selectedBaseProduct, setSelectedBaseProduct] = useState(null);
+  const [isVariantModalOpen, setIsVariantModalOpen] = useState(false);
+
+  const openVariants = (product) => {
+    setSelectedBaseProduct(product);
+    setIsVariantModalOpen(true);
+  };
   
   // New state for direct WhatsApp chat modal
   const [isWaModalOpen, setIsWaModalOpen] = useState(false);
@@ -131,7 +182,8 @@ function App() {
     let messageText = `Hi Saravanan,\n\nMy name is ${formData.name}. I am interested in getting a quote for the following items:\n\n`;
     
     inquiryList.forEach((item, index) => {
-      messageText += `${index + 1}. ${item.title} (${item.brand})\n`;
+      const variantText = item.variantModel ? ` - ${item.variantModel}` : '';
+      messageText += `${index + 1}. ${item.title}${variantText} (${item.brand})\n`;
     });
 
     if (formData.message) {
@@ -151,7 +203,7 @@ function App() {
       <div className="top-bar">
         <div className="container top-bar-content">
           <div className="top-bar-info">
-            <span><Phone size={14} /> +91 89254 09139</span>
+            <span><Phone size={14} /> <a href={`tel:+${WHATSAPP_NUMBER}`} style={{color: 'inherit', textDecoration: 'none'}}>+91 89254 09139</a></span>
             <span className="top-bar-divider"></span>
             <span className="top-bar-address"><MapPin size={14} /> Walajabad, TN 631605</span>
           </div>
@@ -196,6 +248,29 @@ function App() {
         </div>
       </section>
 
+      {/* Features/Value Proposition Section */}
+      <section className="features-section">
+        <div className="container">
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon"><Truck size={36} /></div>
+              <h3>Free Delivery & Installation</h3>
+              <p>Fast, professional setup right at your doorstep.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon"><RefreshCw size={36} /></div>
+              <h3>Best Exchange Price</h3>
+              <p>Get the highest market value for your old batteries.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon"><Tag size={36} /></div>
+              <h3>Exclusive Offers</h3>
+              <p>Unbeatable combo deals and discounts on top brands.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Brands Section */}
       <section className="brands-section">
         <div className="container">
@@ -212,6 +287,16 @@ function App() {
       <section id="products" className="products-section section-padding">
         <div className="container">
           <h2 className="section-title">Our <span>Products</span></h2>
+
+          {/* Category Tags */}
+          <div className="category-filters">
+            {categories.map(cat => (
+              <div key={cat} className="category-tag">
+                {cat}
+              </div>
+            ))}
+          </div>
+
           <div className="grid grid-cols-4">
             {products.map(product => (
               <div key={product.id} className="product-card">
@@ -220,18 +305,24 @@ function App() {
                 </div>
                 <div className="product-info">
                   <span className="product-category">
-                    {product.category === 'Battery' ? <Battery size={14} className="inline mr-1" /> : 
-                     product.category === 'Inverter' ? <Zap size={14} className="inline mr-1" /> : 
-                     <Wrench size={14} className="inline mr-1" />}
-                    {product.brand}
+                    {product.category.includes('INVERTER') ? <Zap size={14} className="inline mr-1" /> : 
+                     product.category === 'WATER PURIFIER' ? <Wrench size={14} className="inline mr-1" /> : 
+                     <Battery size={14} className="inline mr-1" />}
+                    {product.brand} &bull; {product.category.replace('-', ' ')}
                   </span>
                   <h3 className="product-title">{product.title}</h3>
-                  <button 
-                    className={`btn ${inquiryList.find(i => i.id === product.id) ? 'btn-secondary' : 'btn-primary'}`}
-                    onClick={() => addToInquiry(product)}
-                  >
-                    {inquiryList.find(i => i.id === product.id) ? <><Check size={18} /> Added to Inquiry</> : <><ShoppingCart size={18} /> Add to Inquiry</>}
-                  </button>
+                  {product.variants ? (
+                    <button className="btn btn-primary" onClick={() => openVariants(product)}>
+                      Select Model
+                    </button>
+                  ) : (
+                    <button 
+                      className={`btn ${inquiryList.find(i => i.id === product.id) ? 'btn-secondary' : 'btn-primary'}`}
+                      onClick={() => addToInquiry(product)}
+                    >
+                      {inquiryList.find(i => i.id === product.id) ? <><Check size={18} /> Added to Inquiry</> : <><ShoppingCart size={18} /> Add to Inquiry</>}
+                    </button>
+                  )}
                 </div>
               </div>
             ))}
@@ -282,8 +373,8 @@ function App() {
                   <MapPin size={18} style={{flexShrink: 0}} /> 
                   <a href="https://maps.app.goo.gl/RqSPovKYoxFJFqLAA" target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>No.3 masillamani, Mill Rd, Walajabad, Tamil Nadu 631605</a>
                 </li>
-                <li style={{display: 'flex', gap: '0.5rem'}}><Phone size={18} /> +91 89254 09139</li>
-                <li style={{display: 'flex', gap: '0.5rem'}}><Mail size={18} /> info@ommuruga.com</li>
+                <li style={{display: 'flex', gap: '0.5rem'}}><Phone size={18} /> <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 89254 09139</a></li>
+                <li style={{display: 'flex', gap: '0.5rem'}}><Mail size={18} /> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Ommurugapowertools04@gmail.com" target="_blank" rel="noreferrer">Ommurugapowertools04@gmail.com</a></li>
               </ul>
             </div>
             <div className="footer-quick-links">
@@ -302,7 +393,10 @@ function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating Buttons */}
+      <a href={`tel:+${WHATSAPP_NUMBER}`} className="floating-call" title="Call Us">
+        <Phone size={28} />
+      </a>
       <button onClick={() => setIsWaModalOpen(true)} className="floating-whatsapp" title="Chat with us on WhatsApp">
         <WhatsAppIcon size={32} />
       </button>
@@ -327,7 +421,7 @@ function App() {
                   <div key={item.id} className="inquiry-item">
                     <div className="item-info">
                       <p>{item.brand}</p>
-                      <h4>{item.title}</h4>
+                      <h4>{item.title}{item.variantModel ? ` - ${item.variantModel}` : ''}</h4>
                     </div>
                     <button className="remove-btn" onClick={() => removeFromInquiry(item.id)} title="Remove">
                       <X size={18} />
@@ -392,6 +486,50 @@ function App() {
                 <WhatsAppIcon size={18} /> Continue to WhatsApp
               </button>
             </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Variant Selection Modal */}
+      <div className={`modal-overlay ${isVariantModalOpen ? 'open' : ''}`} onClick={() => setIsVariantModalOpen(false)}>
+        <div className="modal variants-modal" onClick={e => e.stopPropagation()} style={{ maxWidth: '600px' }}>
+          <div className="modal-header">
+            <h2>{selectedBaseProduct?.title} Models</h2>
+            <button className="close-btn" onClick={() => setIsVariantModalOpen(false)}><X /></button>
+          </div>
+          <div className="modal-body" style={{ maxHeight: '60vh', overflowY: 'auto', padding: '0' }}>
+            {selectedBaseProduct?.variants ? (
+              <table className="variants-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead style={{ position: 'sticky', top: 0, background: '#f8fafc', zIndex: 1 }}>
+                  <tr>
+                    <th style={{ textAlign: 'left', padding: '1rem', borderBottom: '1px solid #e2e8f0' }}>Model</th>
+                    <th style={{ textAlign: 'left', padding: '1rem', borderBottom: '1px solid #e2e8f0' }}>Specs</th>
+                    <th style={{ textAlign: 'right', padding: '1rem', borderBottom: '1px solid #e2e8f0' }}>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {selectedBaseProduct.variants.map((variant) => {
+                    const variantId = `${selectedBaseProduct.id}-${variant.id}`;
+                    const isAdded = inquiryList.find(i => i.id === variantId);
+                    return (
+                      <tr key={variant.id} style={{ borderBottom: '1px solid #e2e8f0' }}>
+                        <td style={{ padding: '1rem', fontWeight: '500' }}>{variant.model}</td>
+                        <td style={{ padding: '1rem', color: 'var(--text-light)' }}>{variant.specs}</td>
+                        <td style={{ padding: '1rem', textAlign: 'right' }}>
+                          <button 
+                            className={`btn ${isAdded ? 'btn-secondary' : 'btn-primary'}`}
+                            style={{ padding: '0.4rem 1rem', fontSize: '0.875rem' }}
+                            onClick={() => addToInquiry({...selectedBaseProduct, id: variantId, variantModel: variant.model})}
+                          >
+                            {isAdded ? 'Added' : 'Add'}
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            ) : null}
           </div>
         </div>
       </div>
