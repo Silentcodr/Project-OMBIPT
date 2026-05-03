@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ShoppingCart, Phone, MapPin, Mail, MessageCircle, Star, X, Check, ArrowRight, Battery, Zap, Wrench, Truck, RefreshCw, Tag } from 'lucide-react';
+import { ShoppingCart, Phone, MapPin, Mail, MessageCircle, Star, X, Check, ArrowRight, Battery, Zap, Wrench, Truck, RefreshCw, Tag, User } from 'lucide-react';
 import './App.css';
 
 const WhatsAppIcon = ({ size = 24, color = "currentColor" }) => (
@@ -8,7 +8,7 @@ const WhatsAppIcon = ({ size = 24, color = "currentColor" }) => (
   </svg>
 );
 
-const WHATSAPP_NUMBER = "918925409139"; // Added country code 91
+const WHATSAPP_NUMBER = "917708802791"; // Added country code 91
 
 const categories = [
   'INVERTER', 'INVERTER-BATTERY', 'HOME UPS COMBO', 
@@ -60,6 +60,10 @@ const products = [
   { id: 6, title: 'Amaron Pro Bike Rider', category: 'TWO WHEELER BATTERY', brand: 'Amaron', img: '/products/amaron_pro_rider.png' },
   { id: 7, title: 'Exide Xpress Heavy Duty', category: 'HEAVY VEHICLE BATTERY', brand: 'Exide', img: '/products/exide_xpress.png' },
   { id: 8, title: 'Torque Battery Pack', category: 'INVERTER-BATTERY', brand: 'Torque', img: '/products/torque_battery.png' },
+  { id: 9, title: 'Exide IMST1000', category: 'INVERTER-BATTERY', brand: 'Exide', img: '/products/exide_imst1000.jpeg', description: 'Exide Home InvaMaster' },
+  { id: 10, title: 'Luminous RC18000 + Inverter 1050 Combo', category: 'HOME UPS COMBO', brand: 'Luminous', img: '/products/luminous_rc18000_combo_v2.png', description: 'RC 18000 150Ah Battery + Eco Volt Neo 1050 Inverter' },
+  { id: 11, title: 'Exide Xplore XLTZ5A', category: 'TWO WHEELER BATTERY', brand: 'Exide', img: '/products/exide_xplore_xltz5a.jpeg', description: 'Motorcycle VRLA Battery (48 Months Warranty)' },
+  { id: 12, title: 'Exide IMTT1500 + Inverter Star Combo', category: 'HOME UPS COMBO', brand: 'Exide', img: '/products/exide_imtt1500_combo.jpeg', description: 'IMTT1500 150Ah Battery + Star 12V/1125VA Inverter' }
 ];
 
 const brands = ['Exide', 'Torque', 'Microtek', 'Luminous', 'Amaron'];
@@ -203,7 +207,7 @@ function App() {
       <div className="top-bar">
         <div className="container top-bar-content">
           <div className="top-bar-info">
-            <span><Phone size={14} /> <a href={`tel:+${WHATSAPP_NUMBER}`} style={{color: 'inherit', textDecoration: 'none'}}>+91 89254 09139</a></span>
+            <span><Phone size={14} /> <a href={`tel:+${WHATSAPP_NUMBER}`} style={{color: 'inherit', textDecoration: 'none'}}>+91 77088 02791</a></span>
             <span className="top-bar-divider"></span>
             <span className="top-bar-address"><MapPin size={14} /> Walajabad, TN 631605</span>
           </div>
@@ -301,7 +305,7 @@ function App() {
             {products.map(product => (
               <div key={product.id} className="product-card">
                 <div className="product-img-wrap">
-                  <img src={product.img} alt={product.title} />
+                  <img src={product.img} alt={product.title} loading="lazy" />
                 </div>
                 <div className="product-info">
                   <span className="product-category">
@@ -369,11 +373,15 @@ function App() {
             <div className="footer-contact">
               <h3 className="footer-heading">Contact Us</h3>
               <ul className="footer-links">
+                <li style={{display: 'flex', gap: '0.5rem', alignItems: 'flex-start'}}>
+                  <User size={18} style={{flexShrink: 0, marginTop: '2px'}} /> 
+                  <span>Saravanan (Proprietor)</span>
+                </li>
                 <li style={{display: 'flex', gap: '0.5rem'}}>
                   <MapPin size={18} style={{flexShrink: 0}} /> 
                   <a href="https://maps.app.goo.gl/RqSPovKYoxFJFqLAA" target="_blank" rel="noreferrer" style={{textDecoration: 'underline'}}>No.3 masillamani, Mill Rd, Walajabad, Tamil Nadu 631605</a>
                 </li>
-                <li style={{display: 'flex', gap: '0.5rem'}}><Phone size={18} /> <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 89254 09139</a></li>
+                <li style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}><Phone size={18} /> <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 77088 02791</a></li>
                 <li style={{display: 'flex', gap: '0.5rem'}}><Mail size={18} /> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Ommurugapowertools04@gmail.com" target="_blank" rel="noreferrer">Ommurugapowertools04@gmail.com</a></li>
               </ul>
             </div>
